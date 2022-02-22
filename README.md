@@ -6,7 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of addrsheff is to …
+addrsheff is an R package. The goal is to help with address data
+e.g. postcodes.
 
 ## Installation
 
@@ -18,38 +19,41 @@ You can install the development version of addrsheff from
 devtools::install_github("scc-pi/addrsheff")
 ```
 
+If you work for Sheffield City Council you can install the binary
+package for Windows from:
+
+> S:\\BI Team\\ShareToAll\\RPackages
+
+Using RStudio you can does this via the *Tools \> Install packages…*
+menu.
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(addrsheff)
-## basic example code
+
+# Create a data frame with some example records
+df <- tibble::tribble(
+  ~name,    ~postcode,
+  "SCC",    "S1 2HH",
+  "Blades", "S2 4SU",
+  "Owls",   "S6 1SW"
+)
+
+add_postcode_vars(
+  df,
+  pcd_name = "postcode",
+  .admin_district = FALSE,
+  .lat_long = TRUE,
+  other_vars = c("admin_ward", "msoa_code")
+)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## Credit
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+The `add_postcode_vars()` functions depends on the
+[PostcodesioR](https://docs.ropensci.org/PostcodesioR/) R package and
+the [postcodes.io](https://postcodes.io/) free postcode and geolocation
+API for the UK.
