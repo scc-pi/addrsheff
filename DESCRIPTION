@@ -1,0 +1,12 @@
+Package: addrsheff
+Version: 0.0.0.9000
+Title: Tools To Help With Address Data
+Description: For example, based on a postcode column, add variables to a data frame such as Ward.
+Authors@R: person(given = "Laurie",
+       family = "Platt",
+       role = c("aut", "cre"),
+       email = "laurie.platt@sheffield.gov.uk")
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
