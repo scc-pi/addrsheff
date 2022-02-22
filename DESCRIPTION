@@ -7,8 +7,14 @@ Description: For example, based on a postcode column, add variables to a
     data frame such as Ward.
 License: MIT + file LICENSE
 Imports: 
+    dplyr,
     magrittr,
-    stats
+    PostcodesioR,
+    purrr,
+    stats,
+    stringr,
+    tibble,
+    tidyr
 Suggests: 
     knitr,
     rmarkdown,

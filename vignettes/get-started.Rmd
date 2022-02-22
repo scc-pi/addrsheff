@@ -104,6 +104,26 @@ Each of them will be inflated in a different file, provided that there is a leve
 my_other_median(1:12)
 ```
 
+## Add postcode variables
+
+```{r examples-add_postcode_vars}
+# Create a data frame with some example records
+df <- tibble::tribble(
+  ~name,    ~postcode,
+  "SCC",    "S1 2HH",
+  "Blades", "S2 4SU",
+  "Owls",   "S6 1SW"
+)
+
+add_postcode_vars(
+  df,
+  pcd_name = "postcode",
+  .admin_district = FALSE,
+  .lat_long = TRUE,
+  other_vars = c("admin_ward", "msoa_code")
+)
+```
+
 <!--
 
 # There can be development actions

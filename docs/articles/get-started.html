@@ -150,6 +150,26 @@ Each of them will be inflated in a different file, provided that there is a leve
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/my_other_median.html">my_other_median</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6.5</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="add-postcode-variables">Add postcode variables<a class="anchor" aria-label="anchor" href="#add-postcode-variables"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create a data frame with some example records</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="va">name</span>,    <span class="op">~</span><span class="va">postcode</span>,
+  <span class="st">"SCC"</span>,    <span class="st">"S1 2HH"</span>,
+  <span class="st">"Blades"</span>, <span class="st">"S2 4SU"</span>,
+  <span class="st">"Owls"</span>,   <span class="st">"S6 1SW"</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="../reference/add_postcode_vars.html">add_postcode_vars</a></span><span class="op">(</span>
+  <span class="va">df</span>,
+  pcd_name <span class="op">=</span> <span class="st">"postcode"</span>,
+  .admin_district <span class="op">=</span> <span class="cn">FALSE</span>,
+  .lat_long <span class="op">=</span> <span class="cn">TRUE</span>,
+  other_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"admin_ward"</span>, <span class="st">"msoa_code"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <!--
 
 # There can be development actions
