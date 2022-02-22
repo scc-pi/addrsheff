@@ -1,12 +1,20 @@
 Package: addrsheff
-Version: 0.0.0.9000
 Title: Tools To Help With Address Data
-Description: For example, based on a postcode column, add variables to a data frame such as Ward.
-Authors@R: person(given = "Laurie",
-       family = "Platt",
-       role = c("aut", "cre"),
-       email = "laurie.platt@sheffield.gov.uk")
+Version: 0.0.0.9000
+Authors@R: 
+    person("Laurie", "Platt", , "laurie.platt@sheffield.gov.uk", role = c("aut", "cre"))
+Description: For example, based on a postcode column, add variables to a
+    data frame such as Ward.
 License: MIT + file LICENSE
+Imports: 
+    magrittr,
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
