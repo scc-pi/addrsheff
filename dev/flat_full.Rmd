@@ -368,6 +368,7 @@ add_postcode_vars <- function(df,
 
 ```{r examples-add_postcode_vars}
 # Create a data frame with some example records
+# GH Action
 df <- tibble::tribble(
   ~name,    ~postcode,
   "SCC",    "S1 2HH",

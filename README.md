@@ -27,9 +27,11 @@ package for Windows from:
 Using RStudio you can does this via the *Tools \> Install packages…*
 menu.
 
-## Example
+## add_postcode_vars()
 
-This is a basic example which shows you how to solve a common problem:
+This package currently has just one function `add_postcode_vars()`. Pass
+it a data frame with a postcode column and it will return the data frame
+with new columns e.g. Ward:
 
 ``` r
 library(addrsheff)
@@ -53,7 +55,10 @@ add_postcode_vars(
 
 ## Credit
 
-The `add_postcode_vars()` functions depends on the
+The `add_postcode_vars()` function depends on the
 [PostcodesioR](https://docs.ropensci.org/PostcodesioR/) R package and
 the [postcodes.io](https://postcodes.io/) free postcode and geolocation
 API for the UK.
+
+This package was built using
+[fusen](https://thinkr-open.github.io/fusen/index.html).
