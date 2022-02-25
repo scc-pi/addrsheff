@@ -14,7 +14,6 @@
 #'
 #' @examples
 #' # Create a data frame with some example records
-#' # GH Action
 #' df <- tibble::tribble(
 #'   ~name,    ~postcode,
 #'   "SCC",    "S1 2HH",
@@ -34,10 +33,6 @@ add_postcode_vars <- function(df,
                               .admin_district = TRUE,
                               .lat_long = FALSE,
                               other_vars = character(0)){
-  
-  # library(tidyverse) 
-  # library(PostcodesioR)
-  # library(magrittr)
 
   ## bulk_postcode_lookup() is currently not ignoring white space ----
   # - looks like it might be a postcodes.io issue rather than PostcodesioR

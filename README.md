@@ -30,8 +30,10 @@ menu.
 ## add_postcode_vars()
 
 This package currently has just one function `add_postcode_vars()`. Pass
-it a data frame with a postcode column and it will return the data frame
-with new columns e.g. Ward:
+it a data frame with a postcode column, specify the variables e.g. Ward,
+and it will add them to the passed data frame and return it. Valid
+variable names are listed under “Available Data Fields” in
+[postcodes.io/docs](https://postcodes.io/docs).
 
 ``` r
 library(addrsheff)
@@ -56,9 +58,9 @@ add_postcode_vars(
 ## Credit
 
 The `add_postcode_vars()` function depends on the
-[PostcodesioR](https://docs.ropensci.org/PostcodesioR/) R package and
-the [postcodes.io](https://postcodes.io/) free postcode and geolocation
-API for the UK.
+[PostcodesioR](https://docs.ropensci.org/PostcodesioR/) package and the
+[postcodes.io](https://postcodes.io/) free postcode and geolocation API
+for the UK.
 
 This package was built using
 [fusen](https://thinkr-open.github.io/fusen/index.html).
