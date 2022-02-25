@@ -24,8 +24,7 @@ package for Windows from:
 
 > S:\\BI Team\\ShareToAll\\RPackages
 
-Using RStudio you can does this via the *Tools \> Install packages…*
-menu.
+Using RStudio you can do this via the *Tools \> Install packages…* menu.
 
 ## add_postcode_vars()
 
