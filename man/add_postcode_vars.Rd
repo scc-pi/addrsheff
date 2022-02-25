@@ -31,6 +31,7 @@ Add postcode variables e.g. Ward, to a data frame with postcodes
 }
 \examples{
 # Create a data frame with some example records
+# GH Action
 df <- tibble::tribble(
   ~name,    ~postcode,
   "SCC",    "S1 2HH",
