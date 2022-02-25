@@ -2,5 +2,4 @@
 
 export("%>%")
 export(add_postcode_vars)
-export(my_median)
 importFrom(magrittr,"%>%")
