@@ -66,7 +66,7 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of addrsheff is to …</p>
+<p>addrsheff is an R package. The goal is to help with address data e.g. postcodes.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -74,28 +74,40 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"scc-pi/addrsheff"</span><span class="op">)</span></code></pre></div>
+<p>If you work for Sheffield City Council you can install the binary package for Windows from:</p>
+<blockquote>
+<p>S:\BI Team\ShareToAll\RPackages</p>
+</blockquote>
+<p>Using RStudio you can does this via the <em>Tools &gt; Install packages…</em> menu.</p>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="add_postcode_vars">add_postcode_vars()<a class="anchor" aria-label="anchor" href="#add_postcode_vars"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>This package currently has just one function <code><a href="reference/add_postcode_vars.html">add_postcode_vars()</a></code>. Pass it a data frame with a postcode column and it will return the data frame with new columns e.g. Ward:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">addrsheff</span><span class="op">)</span>
-<span class="co">## basic example code</span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span>
-<span class="co">#&gt;      speed           dist       </span>
-<span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span>
-<span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span>
-<span class="co">#&gt;  Median :15.0   Median : 36.00  </span>
-<span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span>
-<span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
-<span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code><a href="https://devtools.r-lib.org/reference/build_rmd.html" class="external-link">devtools::build_readme()</a></code> is handy for this. You could also use GitHub Actions to re-render <code>README.Rmd</code> every time you push. An example workflow can be found here: <a href="https://github.com/r-lib/actions/tree/v1/examples" class="external-link uri">https://github.com/r-lib/actions/tree/v1/examples</a>.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+
+<span class="co"># Create a data frame with some example records</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="va">name</span>,    <span class="op">~</span><span class="va">postcode</span>,
+  <span class="st">"SCC"</span>,    <span class="st">"S1 2HH"</span>,
+  <span class="st">"Blades"</span>, <span class="st">"S2 4SU"</span>,
+  <span class="st">"Owls"</span>,   <span class="st">"S6 1SW"</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="reference/add_postcode_vars.html">add_postcode_vars</a></span><span class="op">(</span>
+  <span class="va">df</span>,
+  pcd_name <span class="op">=</span> <span class="st">"postcode"</span>,
+  .admin_district <span class="op">=</span> <span class="cn">FALSE</span>,
+  .lat_long <span class="op">=</span> <span class="cn">TRUE</span>,
+  other_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"admin_ward"</span>, <span class="st">"msoa_code"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="credit">Credit<a class="anchor" aria-label="anchor" href="#credit"></a>
+</h2>
+<p>The <code><a href="reference/add_postcode_vars.html">add_postcode_vars()</a></code> function depends on the <a href="https://docs.ropensci.org/PostcodesioR/" class="external-link">PostcodesioR</a> R package and the <a href="https://postcodes.io/" class="external-link">postcodes.io</a> free postcode and geolocation API for the UK.</p>
+<p>This package was built using <a href="https://thinkr-open.github.io/fusen/index.html" class="external-link">fusen</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
